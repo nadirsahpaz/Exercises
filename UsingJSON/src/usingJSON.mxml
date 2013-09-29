@@ -10,24 +10,9 @@
 			
 			protected function init(event:FlexEvent):void
 			{
-				/*json from file */
-				var file:File = new File("d://testFolder/firstJson.json");
-				var fileStream:FileStream = new FileStream();
-				fileStream.open(file, FileMode.READ);
-				var str = fileStream.readUTFBytes(fileStream.bytesAvailable);
-				fileStream.close();
-				
-//				var loader:URLLoader=new URLLoader();
-//				loader.addEventListener(Event.COMPLETE, receive);
-//				loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, notAllowed);
-//				loader.addEventListener(IOErrorEvent.IO_ERROR, notFound);
-//				loader.load(request);
-				
-				
-				/* json in abstract */
-//				var jsonString:String = '{"srcLocation":"pc","filename":"name","fileext":"jpg","url":""}';
-				var decodedObj:Object = com.adobe.serialization.json.JSON.decode(str);
-				trace(decodedObj.widget.debut);
+				// import as3corelib.swc
+				var jsonString:String = '{"srcLocation":"pc","filename":"name","fileext":"jpg","url":""}';
+				var decodedObj:Object = com.adobe.serialization.json.JSON.decode(jsonString);
 				
 				for(var key:String in decodedObj) 
 					trace("Name: " + key + " - Value: " + decodedObj[key]);
